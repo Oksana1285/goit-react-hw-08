@@ -1,0 +1,45 @@
+.formContact {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin: auto;
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #1b22a8;
+  border-radius: 8px;
+}
+
+.formLabel {
+  text-align: start;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.formInput {
+  width: 100%;
+  margin-bottom: 30px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-style: none;
+  border-radius: 8px;
+  padding-block: 8px;
+}
+
+.formInput:focus {
+  border-color: #6c886c;
+  box-shadow: 0 4px 4px #564b4b26;
+}
+
+.formInputWrap {
+  position: relative;
+}
+
+.formErrorMessage {
+  position: absolute;
+  top: 32px;
+  left: 8px;
+  color: rgb(209, 127, 39);
+}
+
+.formButton {
+  margin-top: 30px;
+}
