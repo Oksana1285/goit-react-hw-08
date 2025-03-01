@@ -1,0 +1,53 @@
+.registerForm {
+  width: 320px;
+}
+
+.registerLabel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.registerContact {
+  margin: auto;
+  border: 2px solid var(--deep-dark);
+  border-radius: 8px;
+  width: 320px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.registerLabel {
+  text-align: start;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.registerInputWrap {
+  position: relative;
+}
+
+.registerInput {
+  border-style: none;
+  border-radius: 8px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  min-width: 300px;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.registerErrorMessage {
+  position: absolute;
+  top: 32px;
+  left: 8px;
+  color: rgb(226, 93, 40);
+}
+
+.registerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: auto;
+}

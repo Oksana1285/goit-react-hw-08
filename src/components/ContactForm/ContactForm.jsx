@@ -1,20 +1,18 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
+import toast from 'react-hot-toast';
 
 import css from './ContactForm.module.css';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, `Too Short!`)
-    .max(50, `Too Long!`)
+    .min(3, 'Too Short!')
+    .max(50, 'Too Long!')
     .required('Required field!'),
   number: Yup.string()
-    .min(3, `Short!`)
-    .max(50, `Long!`)
-    .matches(/^\d{3}-\d{2}-\d{2}$/, 'Invalid phone number format')
+    .matches(/^\d{3}-\d{2}-\d{2}$/, 'Format must be xxx-xx-xx')
     .required('Required field!'),
 });
 
@@ -23,16 +21,21 @@ const initialValues = {
   number: '',
 };
 
-const ContactForm = ({ onAdd }) => {
-  const nameId = useId();
-  const numberId = useId();
-
+const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
-    actions.setSubmitting(false);
-    actions.resetForm();
+    dispatch(addContact(values))
+      .unwrap()
+      .then(() => {
+        toast.success(`Contact ${values.name} successfully added!`);
+        actions.setSubmitting(false);
+        actions.resetForm();
+      })
+      .catch(() => {
+        toast.error('Failed to add contact');
+        actions.setSubmitting(false);
+      });
   };
 
   return (
@@ -41,9 +44,11 @@ const ContactForm = ({ onAdd }) => {
       onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
-      {({ isSabmitting }) => (
+      {(
+        { isSubmitting } // Fixed typo here
+      ) => (
         <Form className={css.formContact}>
-          <label className={css.formLabel} htmlFor={nameId}>
+          <label className={css.formLabel} htmlFor="name">
             Name
           </label>
           <div className={css.formInputWrap}>
@@ -51,7 +56,7 @@ const ContactForm = ({ onAdd }) => {
               className={css.formInput}
               type="text"
               name="name"
-              id={nameId}
+              id="name"
               placeholder="Name"
             />
             <ErrorMessage
@@ -60,16 +65,16 @@ const ContactForm = ({ onAdd }) => {
               component="div"
             />
           </div>
-          <label className={css.formLabel} htmlFor={numberId}>
+
+          <label className={css.formLabel} htmlFor="number">
             Number
           </label>
           <div className={css.formInputWrap}>
             <Field
               className={css.formInput}
               type="tel"
-              inputMode="tel"
               name="number"
-              id={numberId}
+              id="number"
               placeholder="xxx-xx-xx"
             />
             <ErrorMessage
@@ -78,10 +83,11 @@ const ContactForm = ({ onAdd }) => {
               component="div"
             />
           </div>
+
           <button
             className={css.formButton}
             type="submit"
-            disabled={isSabmitting}
+            disabled={isSubmitting} // Fixed typo here
           >
             Add contact
           </button>

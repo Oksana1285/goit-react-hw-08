@@ -1,0 +1,41 @@
+.navMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.navLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #1c1818;
+}
+
+.active {
+  border-radius: 50px;
+  background-color: #003dd7;
+  color: #141316;
+  box-shadow: 0 1px 1px #00000024, 0 1px 3px #0000001f, 0 2px 1px #0003;
+}
+
+button {
+  background-color: #eee5e5;
+}
+
+@media screen and (min-width: 768px) {
+  .navMenu {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .navLink:hover {
+    background-color: #e1dae9;
+    box-shadow: 0 1px 1px #00000024, 0 1px 3px #0000001f, 0 2px 1px #0003;
+    color: #00afd7;
+  }
+}

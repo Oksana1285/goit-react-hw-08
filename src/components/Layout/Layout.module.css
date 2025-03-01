@@ -1,0 +1,10 @@
+.barContainer {
+  max-width: 90dvw;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.pageContainer {
+  padding: 40px;
+  min-height: 80vh;
+}

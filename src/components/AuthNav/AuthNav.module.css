@@ -1,0 +1,40 @@
+.authMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.link {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  border-radius: 50px;
+  background-color: #e8def3;
+  color: #0061d7;
+
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  margin-bottom: 5px;
+  padding: 7px 20px;
+}
+
+.active {
+  border-radius: 50px;
+  background-color: #0061d7;
+  color: #f0eafa;
+  box-shadow: 0 1px 1px #28272724, 0 1px 3px #2625251f,
+    0 2px 1px rgba(26, 24, 24, 0.2);
+}
+
+@media screen and (min-width: 768px) {
+  .link:hover {
+    background-color: #0061d7;
+    box-shadow: 0 1px 1px #28272724, 0 1px 3px #2625251f,
+      0 2px 1px rgba(26, 24, 24, 0.2);
+    color: #f0eafa;
+  }
+}

@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 320px;
+  max-width: 375px;
+  margin-bottom: 16px;
+  padding-inline: 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(9, 12, 36, 0.37);
+  border: 2px solid rgba(62, 20, 20, 0.18);
+  border-radius: 8px;
+}
+
+.navigation {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.scrol {
+  padding: 10px 0;
+}
+
+.transparent {
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .scrol {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
